@@ -10,6 +10,7 @@ console.log("readFile",fs.readFile);
    console.log("Data "  + data);
 })
 */
+/*
 let data = "This is a file containing a collection of scarlett johanson photos.";
   
 fs.writeFile("photosScarlets.txt", data, (err) => {
@@ -21,3 +22,21 @@ fs.writeFile("photosScarlets.txt", data, (err) => {
     console.log(fs.readFileSync("photosScarlets.txt", "utf8"));
   }
 });
+*/
+////appendfile
+
+console.log("\nFile Content before the append:",
+  fs.readFileSync("books.txt", "utf8"));
+  
+fs.appendFile("books.txt", "Maranatha,Dios eterno", (err) => {
+  if (err) {
+    console.log(err);
+  }
+  else {
+    // Get the file contents after the append operation
+    console.log("\nFile Contents of file after append:",
+      fs.readFileSync("books.txt", "utf8"));
+  }
+});
+
+
