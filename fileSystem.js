@@ -65,7 +65,7 @@ function getFilesInDirectory() {
   });
 }
 */
-
+/*
 getCurrentFilenames();
 console.log("\nFile Contents of books:",
   fs.readFileSync("books.txt", "utf8"));
@@ -89,4 +89,28 @@ function getCurrentFilenames() {
     console.log(file);
   });
 }
+*/
+const leerArchivo =(archivo)=>{
+    fs.readFile(archivo,'utf8',(err,data)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+    ///
+       console.log("Data "  + data);
+    })
+}
+
+fs.readdir("Directory","utf-8",(err,file)=>{
+    const directory ="Directory";
+    if (err){
+        console.log(err);
+        return;
+      }
+
+     file.forEach(file=>{
+             leerArchivo(`Directory/${file}`);   
+     })
+})
+
 
