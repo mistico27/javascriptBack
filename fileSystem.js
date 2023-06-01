@@ -24,19 +24,45 @@ fs.writeFile("photosScarlets.txt", data, (err) => {
 });
 */
 ////appendfile
-
+/*
 console.log("\nFile Content before the append:",
   fs.readFileSync("books.txt", "utf8"));
   
-fs.appendFile("books.txt", "Maranatha,Dios eterno", (err) => {
+fs.appendFile("books.txt", "Maranatha,Dios Dios con nosotros", (err) => {
   if (err) {
     console.log(err);
+    return;
+  }
+
+  return fs.readFileSync("books.txt", "utf8");
+  
+});
+*/
+
+///unlink
+//1.- check the files in your directory
+getFilesInDirectory();
+  
+//2.- Delete your file
+fs.unlink("hola.txt", (err => {
+  if (err){
+    console.log(err);
+    return;
   }
   else {
-    // Get the file contents after the append operation
-    console.log("\nFile Contents of file after append:",
-      fs.readFileSync("books.txt", "utf8"));
+    console.log("\nDeleted file: hola.txt");
+//3.- get in your own deirectory
+    getFilesInDirectory();
   }
-});
+}));
+  
+///get all your files 
+function getFilesInDirectory() {
+  console.log("\nFiles present in directory:");
+  let files = fs.readdirSync(__dirname);
+  files.forEach(file => {
+    console.log(file);
+  });
+}
 
 
