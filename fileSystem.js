@@ -41,7 +41,7 @@ fs.appendFile("books.txt", "Maranatha,Dios Dios con nosotros", (err) => {
 
 ///unlink
 //1.- check the files in your directory
-getFilesInDirectory();
+/*getFilesInDirectory();
   
 //2.- Delete your file
 fs.unlink("hola.txt", (err => {
@@ -64,5 +64,29 @@ function getFilesInDirectory() {
     console.log(file);
   });
 }
+*/
 
+getCurrentFilenames();
+console.log("\nFile Contents of books:",
+  fs.readFileSync("books.txt", "utf8"));
+ 
+// Copying the file to a the same name
+fs.copyFile("books.txt", "booksCopied_file.txt", (err) => {
+  if (err) {
+    console.log("Error Found:", err);
+    return;
+  }
+
+    getCurrentFilenames();
+    return  fs.readFileSync("booksCopied_file.txt", "utf8");
+  
+});
+ 
+
+function getCurrentFilenames() {
+  console.log("\nCurrent filenames:");
+  fs.readdirSync(__dirname).forEach(file => {
+    console.log(file);
+  });
+}
 
