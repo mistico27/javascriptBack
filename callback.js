@@ -62,7 +62,7 @@ const leerReceta = (pastel, leer) => {
   const seHorneaPastel = (pastelpreparado, decorar) => {
     let error = null
     setTimeout(() => {
-        pastelpreparado.seHorneo = true;
+        pastelpreparado.seHorneo = false;
       if(!pastelpreparado.seHorneo) {
         error = "debes hornear parea continuar"
       }
@@ -98,6 +98,7 @@ const decorar = (pastelHorneado) => {
           console.log(error)
           return;
         }
+        //pastel se hornea
         seHorneaPastel(pastelHorneado,(error,pasteldecorado)=>{
             if(error) {
                 console.log(error)
