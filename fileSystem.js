@@ -90,6 +90,7 @@ function getCurrentFilenames() {
   });
 }
 */
+/*
 const leerArchivo =(archivo)=>{
     fs.readFile(archivo,'utf8',(err,data)=>{
         if(err){
@@ -97,12 +98,11 @@ const leerArchivo =(archivo)=>{
             return;
         }
     ///
-       console.log("Data "  + data);
+       console.log(archivo  +"" +data);
     })
 }
 
 fs.readdir("Directory","utf-8",(err,file)=>{
-    const directory ="Directory";
     if (err){
         console.log(err);
         return;
@@ -112,5 +112,8 @@ fs.readdir("Directory","utf-8",(err,file)=>{
              leerArchivo(`Directory/${file}`);   
      })
 })
+*/
+
+
 
 
