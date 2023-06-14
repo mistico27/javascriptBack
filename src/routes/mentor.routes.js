@@ -68,27 +68,21 @@ router.delete("/:id",async(req,res)=>{
 ////update Mentor
 
 router.put('/:id',async(req,res)=>{
-    try{
-        if(req.body.generations[0].isActive === false){
-            res.status(400);
-            res.json({
-        success: false,
-        message: "no es posible modificar con una generacion no activa"
-      })
-        }else{
-            const  mentorModificado = await updateMentor(req,res);  
-            await mentorModificado.updateOne({$set:req.body});
-            res.status=200;
-            res.json({
-                success: true,
-                message:"Mentor modificado correctamente"
-              })
-        }     
-             
-    }catch(err){
-        res.status(500).json(err);
-    }
-  });
+    try {
+        // Tiene que estar sencilla
+        const newUpdateMentor = await updateMentor(req.params.id, req.body);
+        res.json({
+          success :true,
+          data: newUpdateMentor
+        })
+      }catch(err) {
+        res.status(err.status || 500);
+        res.json({
+          success: false,
+          message: err.message
+        })
+      }
+    });
 
 
 
