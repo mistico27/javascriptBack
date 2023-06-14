@@ -8,10 +8,12 @@ const express = require("express")
 const app= express();
 
 app.use(express.json())
+
 const routerKoder = require("./routes/koder.routes");
+const routerMentor =require("./routes/mentor.routes");
 ///rutas
 app.use("/koders", routerKoder);
-
+app.use("/mentores",routerMentor)
 app.get("/",(req,res)=>{
 	res.json("nuestra api esta funcionando")
 })
