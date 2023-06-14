@@ -21,7 +21,6 @@ const mentorSchema = new mongoose.Schema({
         name:String,  
         isActive: {
           type: Boolean,
-          default: false
       }
     } 
     }]
