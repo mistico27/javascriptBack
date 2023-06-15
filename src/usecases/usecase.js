@@ -1,5 +1,6 @@
 const User = require("../models/users.model");
 const bcrypt = require('bcrypt');
+const createError = require("http-errors")
 const saltRounds = 10;
 const jwt =require("../lib/jwt/jwt.lib")
 
@@ -17,14 +18,10 @@ const loginSignUp =async(email,password)=>{
     const isValidPassword= await bcrypt.compare(password, userFound.password)
     console.log("usuario encontrado",userFound);
     if(!userFound){
-        const error = new Error("Invalid data");
-        error.status=400;
-        throw error;
+        throw createError(400, "Invalid data");
     }
     if(!isValidPassword){
-        const error = new Error("Invalid data");
-        error.status=400;
-        throw error;
+        throw createError(400, "Invalid data");
     }
     const token = jwt.sign({user: userFound.email, id:userFound._id })
     console.log(token);
