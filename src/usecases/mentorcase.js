@@ -44,7 +44,6 @@ const updateMentor = async (id, data) => {
     });
 
     // Agrego mi nueva generacion que me manda el cliente como activa
-    //@ts-ignore
     newGenerations.push({
       name: data.generation.name,
       isActive: true
